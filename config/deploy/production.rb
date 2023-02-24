@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
-server "124.223.18.178", user: "lighthouse", roles: %w{app db web}, my_property: :my_value
+server "106.14.4.87", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
@@ -45,18 +45,20 @@ server "124.223.18.178", user: "lighthouse", roles: %w{app db web}, my_property:
  set :ssh_options, {
    keys: %w(~/.ssh/id_rsa.pub),
    forward_agent: true,
-   auth_methods: %w(publickey)
+   auth_methods: %w(publickey password),
+   password: "root"
  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
+
+# server "106.14.4.87",
+#   user: "deploy",
 #   roles: %w{web app},
 #   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
+#     user: "deploy", # overrides user setting above
+#     keys: %w(/home/deploy/.ssh/id_rsa),
+#     forward_agent: true,
+#     auth_methods: %w(publickey password),
+#     password: "root"
 #   }
