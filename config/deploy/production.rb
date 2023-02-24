@@ -43,7 +43,7 @@ server "124.223.18.178", user: "lighthouse", roles: %w{app db web}, my_property:
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(~/.ssh/id_rsa),
+   keys: %w(~/.ssh/id_rsa.pub),
    forward_agent: true,
    auth_methods: %w(publickey)
  }
